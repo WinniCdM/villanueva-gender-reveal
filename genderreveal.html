@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Villanueva Gender Reveal Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            flex-direction: column;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            grid-template-rows: repeat(4, 100px);
+            gap: 10px;
+        }
+        .card {
+            width: 100px;
+            height: 100px;
+            background-color: lightgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .card.clicked {
+            background-color: #00ff0d49;
+        }
+        .reveal {
+            background-color: pink !important; /* Change to blue for boy */
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Help us discover the gender of our baby!</h2>
+    <div class="grid"></div>
+    <p id="message" class="hidden">It's a <span id="genderText">girl!</span> 🎉</p>
+
+    <script>
+        const grid = document.querySelector(".grid");
+        const message = document.getElementById("message");
+        const genderText = document.getElementById("genderText");
+        const totalCards = 16;
+        let clickCount = 0;
+        const revealAfter = Math.floor(Math.random() * (totalCards - 5)) + 5; // Random clicks before reveal
+
+        // Gender selection (Modify "pink" to "blue" if needed)
+        const genderColor = "pink"; // Change to "blue" for a boy
+        genderText.textContent = genderColor === "pink" ? "girl!" : "boy!";
+        
+        for (let i = 0; i < totalCards; i++) {
+            const card = document.createElement("div");
+            card.classList.add("card");
+            card.textContent = "🐻"; // Bear emoji
+            card.addEventListener("click", function() {
+                if (!card.classList.contains("clicked")) {
+                    card.classList.add("clicked");
+                    clickCount++;
+                    
+                    if (clickCount >= revealAfter) {
+                        document.querySelectorAll(".card").forEach(c => {
+                            c.classList.add("reveal");
+                        });
+                        message.classList.remove("hidden");
+                    }
+                }
+            });
+            grid.appendChild(card);
+        }
+    </script>
+
+</body>
+</html>
