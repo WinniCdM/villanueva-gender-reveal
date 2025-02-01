@@ -15,18 +15,18 @@
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(4, 100px);
-            grid-template-rows: repeat(4, 100px);
+            grid-template-columns: repeat(4, 20vw);
+            grid-template-rows: repeat(4, 20vw);
             gap: 10px;
         }
         .card {
-            width: 100px;
-            height: 100px;
+            width: 20vw;
+            height: 20vw;
             background-color: lightgray;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 24px;
+            font-size: 50px;
             cursor: pointer;
             transition: background 0.3s ease;
         }
@@ -48,6 +48,7 @@
     <p id="message" class="hidden">It's a <span id="genderText">girl!</span> 🎉</p>
 
     <script>
+        const emojis = ["🐻", "🐶", "🐱", "🦁", "🐯", "🐮", "🐨", "🐼", "🐷", "🐰", "🐹", "🐸", "🐻‍❄️", "🐵", "🦝", "🐺"]
         const grid = document.querySelector(".grid");
         const message = document.getElementById("message");
         const genderText = document.getElementById("genderText");
@@ -62,7 +63,7 @@
         for (let i = 0; i < totalCards; i++) {
             const card = document.createElement("div");
             card.classList.add("card");
-            card.textContent = "🐻"; // Bear emoji
+            card.textContent = emojis[i]; // Bear emoji
             card.addEventListener("click", function() {
                 if (!card.classList.contains("clicked")) {
                     card.classList.add("clicked");
