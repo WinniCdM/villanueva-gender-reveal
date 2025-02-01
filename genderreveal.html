@@ -15,8 +15,8 @@
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(4, 100px);
-            grid-template-rows: repeat(4, 100px);
+            grid-template-columns: repeat(5, 100px);
+            grid-template-rows: repeat(, 100px);
             gap: 10px;
         }
         .card {
@@ -31,10 +31,10 @@
             transition: background 0.3s ease;
         }
         .card.clicked {
-            background-color: #00ff0d49;
+            background-color: #00ff0d50;
         }
         .reveal {
-            background-color: pink !important; /* Change to blue for boy */
+            background-color: lightblue !important; /* Change to blue for boy */
         }
         .hidden {
             display: none;
@@ -51,12 +51,12 @@
         const grid = document.querySelector(".grid");
         const message = document.getElementById("message");
         const genderText = document.getElementById("genderText");
-        const totalCards = 16;
+        const totalCards = 25;
         let clickCount = 0;
         const revealAfter = Math.floor(Math.random() * (totalCards - 5)) + 5; // Random clicks before reveal
 
         // Gender selection (Modify "pink" to "blue" if needed)
-        const genderColor = "pink"; // Change to "blue" for a boy
+        const genderColor = "blue"; // Change to "blue" for a boy
         genderText.textContent = genderColor === "pink" ? "girl!" : "boy!";
         
         for (let i = 0; i < totalCards; i++) {
