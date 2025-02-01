@@ -6,8 +6,8 @@ const instructionsDialog = document.getElementById("instructions");
 const instructionsDialogBox = document.getElementById("instructionsBox");
 const totalCards = 16;
 let clickCount = 0;
-// const revealAfter = Math.floor(Math.random() * (totalCards - 5)) + 5; // Random clicks before reveal
-const revealAfter = 3;
+const revealAfter = Math.floor(Math.random() * (totalCards - 5)) + 5; // Random clicks before reveal
+// const revealAfter = 3;
 
 for (let i = 0; i < totalCards; i++) {
     const card = document.createElement("div");
