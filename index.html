@@ -1,85 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baby Villanueva Gender Reveal Game</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            flex-direction: column;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(4, 20vw);
-            grid-template-rows: repeat(4, 20vw);
-            gap: 10px;
-        }
-        .card {
-            width: 20vw;
-            height: 20vw;
-            background-color: lightgray;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 50px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .card.clicked {
-            background-color: #00ff0d50;
-        }
-        .reveal {
-            background-color: pink !important; /* Change to blue for boy */
-        }
-        .hidden {
-            display: none;
-        }
-    </style>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Baby Villanueva Gender Reveal Game</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <h1>Baby Villanueva</h1>
 
-    <h2>Help us discover the gender of our baby!</h2>
-    <div class="grid"></div>
-    <p id="message" class="hidden">It's a <span id="genderText">girl!</span> 🎉</p>
+        <div class="grid"></div>
 
-    <script>
-        const emojis = ["🐻", "🐶", "🐱", "🦁", "🐯", "🐮", "🐨", "🐼", "🐷", "🐰", "🐹", "🐸", "🐻‍❄️", "🐵", "🦝", "🐺"]
-        const grid = document.querySelector(".grid");
-        const message = document.getElementById("message");
-        const genderText = document.getElementById("genderText");
-        const totalCards = 16;
-        let clickCount = 0;
-        const revealAfter = Math.floor(Math.random() * (totalCards - 5)) + 5; // Random clicks before reveal
+        <!-- Instructions Dialog -->
+        <div class="dialog-overlay" id="instructions">
+            <div class="dialog-box" id="instructionsBox">
+                <h2>Instructions</h2>
+                <div>Is it a boy or a girl?</div>
+                <div>Help us uncover the gender of our bundle of joy</div>
+                <div>by prying it from these animal's cold dead hands.</div>
+                <button class="close-btn" onclick="closeInstructions()">
+                    <i class="fa fa-close"></i>
+                </button>
+            </div>
+        </div>
 
-        // Gender selection (Modify "pink" to "blue" if needed)
-        const genderColor = "pink"; // Change to "blue" for a boy
-        genderText.textContent = genderColor === "pink" ? "girl!" : "boy!";
-        
-        for (let i = 0; i < totalCards; i++) {
-            const card = document.createElement("div");
-            card.classList.add("card");
-            card.textContent = emojis[i]; // Bear emoji
-            card.addEventListener("click", function() {
-                if (!card.classList.contains("clicked")) {
-                    card.classList.add("clicked");
-                    clickCount++;
-                    
-                    if (clickCount >= revealAfter) {
-                        document.querySelectorAll(".card").forEach(c => {
-                            c.classList.add("reveal");
-                        });
-                        message.classList.remove("hidden");
-                    }
-                }
-            });
-            grid.appendChild(card);
-        }
-    </script>
+        <!-- Hidden Dialog for Gender Reveal -->
+        <div class="dialog-overlay" id="dialog">
+            <div class="dialog-box" id="dialogBox">
+                <h2>It's a</h2>
+                <div id="genderText">Girl!</div>
+                <h2>Coming July 2025!</h2>
+            </div>
+        </div>
 
-</body>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
 </html>
