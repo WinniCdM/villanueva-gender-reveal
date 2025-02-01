@@ -37,8 +37,15 @@ body {
     background-color: pink !important; /* Change to blue for boy */
 }
 
+#top-title {
+    font-size: 50px;
+}
+
 #genderText {
     font-size: 100px;
+}
+
+.cursive-text {
     font-family: 'Brush Script MT', cursive;
 }
 
@@ -73,11 +80,16 @@ body {
     font-size: 24px;
 }
 
+#instructionsBox {
+    margin: 20px;
+}
+
 /* Animation when showing the dialog */
 .dialog-overlay.show {
     display: flex;
     opacity: 1;
 }
+
 .dialog-box.show {
     transform: scale(1);
     opacity: 1;
@@ -92,6 +104,7 @@ body {
     font-size: 16px; /* Set a font size */
     cursor: pointer; /* Mouse pointer on hover */
 }
+
 .close-btn:hover {
     background-color: #00ff0d50;
 }
