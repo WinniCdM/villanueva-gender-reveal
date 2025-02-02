@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
     background-color: #f4f4f4;
     margin: 0;
     font-family: Verdana, sans-serif;
@@ -104,15 +104,24 @@ body {
 
 /* Close Button */
 .close-btn {
+    background-color: #00ff0d2f;
     border: none; /* Remove borders */
-    color: grey; /* White text */
+    color: black; /* White text */
     padding: 16px;
     font-size: 20px; 
     cursor: pointer; /* Mouse pointer on hover */
+    margin-top: 10px;
+    width: 100%;
+    transition-duration: 0.4s;
 }
 
 .close-btn:hover {
     background-color: #00ff0d50;
+}
+
+.close-btn:active {
+    background-color: #00ff0d50;
+    width: 95%;
 }
 
 @keyframes bounceIn {
