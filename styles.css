@@ -20,7 +20,7 @@ body {
 .card {
     width: min(20vw, 100px); /* Default: Scales well on mobile */
     height: min(20vw, 100px);
-    font-size: min(10vw, 40px);
+    font-size: min(15vw, 65px);
     background-color: lightgray;
     display: flex;
     justify-content: center;
